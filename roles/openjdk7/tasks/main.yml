@@ -2,3 +2,12 @@
 
 - name: install {{ openjdk7_rpm }}
   yum: name={{ openjdk7_rpm }} state=present
+
+- name: create /etc/java
+  file: name=/etc/java state=directory
+        owner=root group=root mode=0555
+
+- name: create /etc/java/java.conf
+  template: src=etc/java/java.conf.j2
+            dest=/etc/java/java.conf
+            owner=root group=root mode=0444
