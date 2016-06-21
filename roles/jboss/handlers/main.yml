@@ -1,0 +1,7 @@
+---
+
+- name: chown jboss_home
+  command: chown -R {{ jboss_user }}:{{ jboss_user }} {{ jboss_home }}
+
+- name: bounce jboss-as-domain
+  service: name=jboss-as-domain state=restarted

@@ -1,0 +1,16 @@
+---
+
+jboss_version: jboss-as-7.1.1.Final
+
+# urls etc. for downloading jboss
+jboss_tar_url: "http://download.jboss.org/jbossas/7.1/{{ jboss_version }}/{{ jboss_version }}.tar.gz"
+jboss_tar_cache: /root/.{{ jboss_version }}.tar.gz
+
+# use same name for group
+jboss_user: jboss-as
+
+jboss_home_parent: /usr/share
+jboss_home: "{{ jboss_home_parent }}/{{ jboss_version }}"
+
+jboss_log_dir: /var/log/jboss-as
+jboss_pid_dir: /var/run/jboss-as
