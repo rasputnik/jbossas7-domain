@@ -1,0 +1,4 @@
+---
+
+- name: install {{ openjdk7_rpm }}
+  yum: name={{ openjdk7_rpm }} state=present

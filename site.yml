@@ -1,0 +1,6 @@
+---
+
+- hosts: dcs
+  sudo: yes
+  roles:
+    - openjdk7
