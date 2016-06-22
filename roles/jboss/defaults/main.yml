@@ -6,6 +6,9 @@ jboss_version: jboss-as-7.1.1.Final
 jboss_tar_url: "http://download.jboss.org/jbossas/7.1/{{ jboss_version }}/{{ jboss_version }}.tar.gz"
 jboss_tar_cache: /root/.{{ jboss_version }}.tar.gz
 
+# install this one from github
+jcliff_rpm: jcliff-2.11.3-1.noarch.rpm
+
 # use same name for group
 jboss_user: jboss-as
 

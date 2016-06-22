@@ -3,3 +3,10 @@
 - name: symlink jboss-cli into /usr/bin
   file: state=link src={{ jboss_home }}/bin/jboss-cli.sh
         dest=/usr/bin/jboss-cli
+
+- name: stash {{ jcliff_rpm }}
+  get_url: url=https://github.com/bserdar/jcliff/raw/master/{{ jcliff_rpm }}
+           dest=/root/.{{ jcliff_rpm }}
+
+- name: install {{ jcliff_rpm }}
+  yum: name=/root/.{{ jcliff_rpm }} state=present
