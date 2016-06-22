@@ -1,0 +1,5 @@
+---
+
+- name: symlink jboss-cli into /usr/bin
+  file: state=link src={{ jboss_home }}/bin/jboss-cli.sh
+        dest=/usr/bin/jboss-cli

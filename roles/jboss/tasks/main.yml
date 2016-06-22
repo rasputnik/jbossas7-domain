@@ -5,6 +5,9 @@
 # do what an RPM should
 - include: distro.yml
 
+# jboss-cli etc.
+- include: tools.yml
+
 - name: TODO domain config
   debug: msg=Soon(TM)...
 
