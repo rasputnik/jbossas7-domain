@@ -7,7 +7,10 @@
   file: name=/etc/java state=directory
         owner=root group=root mode=0555
 
-- name: create /etc/java/java.conf
-  template: src=etc/java/java.conf.j2
-            dest=/etc/java/java.conf
+- name: create /etc/java/java.conf and /etc/profile.d/java_home.sh
+  template: src=.{{ item }}.j2
+            dest={{ item }}
             owner=root group=root mode=0444
+  with_items:
+    - /etc/java/java.conf
+    - /etc/profile.d/java_home.sh
