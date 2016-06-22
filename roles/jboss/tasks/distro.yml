@@ -21,11 +21,12 @@
     - "{{ jboss_pid_dir }}"
     - "{{ jboss_log_dir }}"
 
-- name: init script and /etc/jboss-as/jboss-as.conf
+- name: initscript, JBOSS_HOME env, /etc/jboss-as/jboss-as.conf
   template: src=.{{ item }}.j2
             dest={{ item }}
             mode=0555 owner=root group=root
   with_items:
     - /etc/init.d/jboss-as-domain
+    - /etc/profile.d/jboss_home.sh
     - /etc/jboss-as/jboss-as.conf
   notify: chown jboss_home
