@@ -4,4 +4,4 @@
   sudo: yes
   roles:
     - openjdk7
-    - jboss
+    - jboss_install
