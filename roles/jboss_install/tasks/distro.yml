@@ -31,7 +31,6 @@
             dest={{ item }}
             mode=0555 owner=root group=root
   with_items:
-    - /etc/init.d/jboss-as-domain
     - /etc/profile.d/jboss_home.sh
     - /etc/jboss-as/jboss-as.conf
   notify: bounce jboss

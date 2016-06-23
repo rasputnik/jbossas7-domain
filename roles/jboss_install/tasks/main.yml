@@ -7,9 +7,3 @@
 
 # jboss-cli etc.
 - include: tools.yml
-
-- name: TODO domain config
-  debug: msg=Soon(TM)...
-
-- name: enable jboss-as-domain service
-  service: name=jboss-as-domain state=started enabled=yes

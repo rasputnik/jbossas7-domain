@@ -1,4 +1,4 @@
 ---
 
-- name: bounce jboss-as-domain
+- name: bounce jboss
   service: name=jboss-as-domain state=restarted

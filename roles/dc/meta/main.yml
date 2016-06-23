@@ -1,0 +1,3 @@
+---
+dependencies:
+  - { role: jboss_install }
