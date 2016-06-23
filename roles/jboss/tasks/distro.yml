@@ -8,7 +8,12 @@
   unarchive: src={{ jboss_tar_cache }} dest={{ jboss_home_parent }}
              creates={{ jboss_home }}/jboss-modules.jar
              copy=no 
-  notify: chown jboss_home
+  notify: bounce jboss
+
+- name: chown jboss_home on first extract
+  shell: "chown -R {{ jboss_user }}:{{ jboss_user }} {{ jboss_home }} && touch {{jboss_home}}/.chowned"
+  args:
+    creates: "{{jboss_home}}/.chowned"
 
 - name: create /etc/jboss-as
   file: name=/etc/jboss-as state=directory
@@ -29,4 +34,4 @@
     - /etc/init.d/jboss-as-domain
     - /etc/profile.d/jboss_home.sh
     - /etc/jboss-as/jboss-as.conf
-  notify: chown jboss_home
+  notify: bounce jboss
