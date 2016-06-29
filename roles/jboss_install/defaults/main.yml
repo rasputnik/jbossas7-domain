@@ -9,6 +9,9 @@ jboss_tar_cache: /root/.{{ jboss_version }}.tar.gz
 # use same name for group
 jboss_user: jboss-as
 
+# symlinked to correct place
+jboss_cli: /usr/bin/jboss-cli
+
 jboss_home_parent: /usr/share
 jboss_home: "{{ jboss_home_parent }}/{{ jboss_version }}"
 

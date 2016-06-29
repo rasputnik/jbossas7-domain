@@ -5,5 +5,5 @@
 # do what an RPM should
 - include: distro.yml
 
-# jboss-cli etc.
-- include: tools.yml
+# jboss-cli in standard place
+- include: cli.yml
