@@ -1,2 +1,10 @@
 [dcs]
 bosshog
+
+[nodes]
+daisy
+
+[hcs:children]
+nodes
+dcs
+
