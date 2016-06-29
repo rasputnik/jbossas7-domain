@@ -7,3 +7,5 @@
 
 # jboss-cli in standard place
 - include: cli.yml
+
+- include: service.yml
