@@ -8,13 +8,13 @@ CentOS 6 based JBoss AS7 cluster.
 
 ## base OS
 
-CentOS 6.7 x64 (from https://github.com/box-cutter/centos-vm ) -
+CentOS 6.8 x64 (from https://github.com/box-cutter/centos-vm ) -
 see Vagrantfile for precise version.
 
 ## requirements
 
 * the centos base image above
-* Ansible 1.9 on your host machine
+* Ansible 2.x on your host machine
 * Virtualbox
 * Vagrant 1.8.x or better (for linked_clones)
 * a Vagrant plugin (see below)

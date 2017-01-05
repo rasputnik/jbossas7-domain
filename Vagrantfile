@@ -24,7 +24,7 @@ Vagrant.configure("2") do |config|
   hosts.each do |host|
     config.vm.define host[:name] do |c|
 
-      c.vm.box = "box-cutter/centos67"
+      c.vm.box = "box-cutter/centos68"
 
       # stop Vagrant 'helping'
       c.ssh.insert_key = false
