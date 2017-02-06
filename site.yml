@@ -2,6 +2,8 @@
 
 - hosts: dcs
   become: yes
+# switch this as needed
+  become_user: root
   roles:
     - openjdk7
-    - dc
+    - jboss_install

@@ -33,4 +33,5 @@
   with_items:
     - /etc/profile.d/jboss_home.sh
     - /etc/jboss-as/jboss-as.conf
+    - /etc/init.d/jboss-as-domain
   notify: bounce jboss
