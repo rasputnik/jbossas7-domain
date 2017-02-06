@@ -4,6 +4,6 @@
   group: name={{ jboss_user }}
 
 - name: create {{ jboss_user }}
-  user: name={{ jboss_user }} shell=/sbin/nologin
-        comment="Jboss User" group={{ jboss_user }}
+  user: name={{ jboss_user }} comment="Jboss User"
+        group={{ jboss_user }}
         createhome=no home={{ jboss_home }}
