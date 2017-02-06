@@ -9,6 +9,7 @@ jboss_tar_cache: /root/.{{ jboss_version }}.tar.gz
 # use same name for group
 jboss_user: jboss-as
 
+# tarfile is extracted here to create versioned directory
 jboss_home_parent: /usr/share
 jboss_home: "{{ jboss_home_parent }}/{{ jboss_version }}"
 
