@@ -9,7 +9,9 @@ Vagrant.require_version ">= 1.8.0"
 # and just read vagrant/hosts directly.
 
 hosts = [
-  {:name => "bosshog", :ip => "10.0.100.10",   :ram => 2048},
+  {:name => "as7dc",    :ip => "10.0.100.10", :ram => 2048},
+  {:name => "as7node1", :ip => "10.0.100.15", :ram => 2048},
+  {:name => "as7node2", :ip => "10.0.100.20", :ram => 2048},
 ]
 
 Vagrant.configure("2") do |config|
