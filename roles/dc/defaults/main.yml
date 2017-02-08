@@ -1,0 +1,3 @@
+jboss_hostxml: "{{ jboss_config_dir }}/host.xml"
+
+jboss_hostxmlns: "urn:jboss:domain:1.2"

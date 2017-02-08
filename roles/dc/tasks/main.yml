@@ -1,0 +1,23 @@
+---
+
+- name: stop DC to work on host.xml
+  service: name=jboss-as-domain state=stopped
+
+- name: reset host.xml from host-master.xml
+  copy: src={{ jboss_config_dir }}/host-master.xml
+        dest={{ jboss_hostxml }}
+        remote_src=yes
+  become: yes
+  become_user: "{{ jboss_user }}"
+
+- name: set host name
+  xml:
+    file: "{{ jboss_hostxml }}"
+    namespaces:
+      t: "{{ jboss_hostxmlns }}"
+    xpath: /t:host
+    attribute: name
+    value: "{{ ansible_hostname }}"
+
+- name: start DC again
+  service: name=jboss-as-domain state=started

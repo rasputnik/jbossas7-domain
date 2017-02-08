@@ -7,3 +7,5 @@
   roles:
     - openjdk7
     - jboss_install
+    - xmlsetup
+    - dc
