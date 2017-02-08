@@ -14,6 +14,7 @@
   shell: "chown -R {{ jboss_user }}:{{ jboss_user }} {{ jboss_home }} && touch {{jboss_home}}/.chowned"
   args:
     creates: "{{jboss_home}}/.chowned"
+    warn: no
 
 - name: create /etc/jboss-as
   file: name=/etc/jboss-as state=directory
