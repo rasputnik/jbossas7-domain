@@ -13,5 +13,6 @@ jboss_user: jboss-as
 jboss_home_parent: /usr/share
 jboss_home: "{{ jboss_home_parent }}/{{ jboss_version }}"
 
+jboss_config_dir: "{{ jboss_home }}/domain/configuration"
 jboss_log_dir: /var/log/jboss-as
 jboss_pid_dir: /var/run/jboss-as
