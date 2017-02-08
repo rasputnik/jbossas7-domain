@@ -1,0 +1,4 @@
+---
+
+- name: try to get away with base python-lxml
+  yum: name=python-lxml state=present
