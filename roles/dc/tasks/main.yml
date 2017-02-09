@@ -19,5 +19,14 @@
     attribute: name
     value: "{{ ansible_hostname }}"
 
+- name: set management ip
+  xml:
+    file: "{{ jboss_hostxml }}"
+    namespaces:
+      t: "{{ jboss_hostxmlns }}"
+    xpath: /t:host/t:interfaces/t:interface[@name="management"]/t:inet-address
+    attribute: value
+    value: "{{ jboss_mgmt_ip }}"
+
 - name: start DC again
   service: name=jboss-as-domain state=started
