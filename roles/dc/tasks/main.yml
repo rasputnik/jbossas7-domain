@@ -28,5 +28,14 @@
     attribute: value
     value: "{{ jboss_mgmt_ip }}"
 
+- name: point jboss-cli to new mgmt ip
+  xml:
+    file: "{{ jboss_home }}/bin/jboss-cli.xml"
+    namespaces:
+      c: "{{ jboss_clins }}"
+    xpath: /c:jboss-cli/c:default-controller
+    set_children:
+      - host: "{{ ansible_default_ipv4.address }}"
+
 - name: start DC again
   service: name=jboss-as-domain state=started
