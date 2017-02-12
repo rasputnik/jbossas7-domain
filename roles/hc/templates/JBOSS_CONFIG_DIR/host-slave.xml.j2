@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
 
-<host xmlns="urn:jboss:domain:1.2">
+<host xmlns="urn:jboss:domain:1.2" name="{{inventory_hostname }}">
 
     <management>
         <security-realms>
             <security-realm name="ManagementRealm">
                 <server-identities>
                      <!-- Replace this with either a base64 password of your own, or use a vault with a vault expression -->
-                     <secret value="c2xhdmVfdXNlcl9wYXNzd29yZA=="/>
+                     <secret value="{{ jboss_secret | b64encode }} "/>
                 </server-identities>
 
                 <authentication>
@@ -28,12 +28,12 @@
     </management>
 
     <domain-controller>
-       <remote host="${jboss.domain.master.address}" port="${jboss.domain.master.port:9999}" security-realm="ManagementRealm"/>
+       <remote host="{{ dc }}" port="${jboss.domain.master.port:9999}" security-realm="ManagementRealm"/>
     </domain-controller>
 
     <interfaces>
         <interface name="management">
-            <inet-address value="${jboss.bind.address.management:127.0.0.1}"/>
+            <inet-address value="{{ jboss_mgmt_ip }}"/>
         </interface>
         <interface name="public">
            <inet-address value="${jboss.bind.address:127.0.0.1}"/>
