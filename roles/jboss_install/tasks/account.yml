@@ -1,9 +1,9 @@
 ---
 
-- name: create {{ jboss_user }} group
-  group: name={{ jboss_user }}
+- name: create {{ jboss_group }} group
+  group: name={{ jboss_group }}
 
 - name: create {{ jboss_user }}
   user: name={{ jboss_user }} comment="Jboss User"
-        group={{ jboss_user }}
+        group={{ jboss_group }}
         createhome=no home={{ jboss_home }}

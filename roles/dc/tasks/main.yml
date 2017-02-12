@@ -42,6 +42,7 @@
     src: JBOSS_CONFIG_DIR/mgmt-users.properties.j2
     dest: "{{ jboss_config_dir }}/mgmt-users.properties"
     owner: "{{ jboss_user }}"
+    group: "{{ jboss_group }}"
     mode: 0600
 
 - name: start DC again
