@@ -4,3 +4,10 @@ jboss_hostxmlns: "urn:jboss:domain:1.2"
 jboss_clins: "urn:jboss:cli:1.0"
 
 jboss_mgmt_ip: "{{ ansible_default_ipv4.address }}"
+
+# NB: you need this to be the same across nodes,
+# so set it in $inventory/group_vars/all
+# mgmt_users:
+#   - username: clusteruser
+#     password: clusterpass
+#     realm:    ManagementRealm

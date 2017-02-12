@@ -23,3 +23,8 @@
 # is for illustration only an does not correspond to a usable password.
 #
 #admin=2a0923285184943425d1f53ddd58ec7a
+#
+{% for a in mgmt_users %}
+{% set plaintext =  [a.username, a.realm, a.password]|join(':') %}
+{{ a.username }}={{ plaintext|hash('md5') }}
+{% endfor %}
