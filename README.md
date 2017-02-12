@@ -1,5 +1,5 @@
 
-**NB: this is rough as badgers. don't use this for anything important**
+**NB: this is incomplete. Don't use this for anything important**
 
 AS7 domain
 =============
@@ -19,20 +19,12 @@ see Vagrantfile for precise version.
 * Vagrant 1.8.x or better (for linked_clones)
 * a Vagrant plugin (see below)
 
-## assumptions
-
-* Hosts permit passwordless ssh+sudo for the relevant ansible_ssh_user.
-* hosts connect to each others inventory hostname
-* name lookups work (see previous point)
-
 ## Vagrant setup
 
 an inventory for Vagrant is in *vagrant/hosts*, the hostnames
 in there need to match your Vagrantfile.
 
-We'll need name resolution, and /etc/hosts is nice and simple.
-
-The [hostmanager plugin](https://github.com/smdahlen/vagrant-hostmanager) will auto-manage that.
+We use the [hostmanager plugin](https://github.com/smdahlen/vagrant-hostmanager) to manage /etc/hosts and provide name resolution.
 
     vagrant plugin install vagrant-hostmanager
 
@@ -45,6 +37,12 @@ _NB: this will also (try to) edit your local /etc/hosts_
 run the main play with:
 
     ansible-playbook -i vagrant/ site.yml
+
+And you should be able to login to the DC http UI at
+
+    http://as7dc:9990/ 
+
+using creds in mgmt_users in vagrant/group_vars/all.
 
 If you add/destroy vagrant VMs, the 'vagrant up' should
 auto-manage your local /etc/hosts along with existing VMs. If you
