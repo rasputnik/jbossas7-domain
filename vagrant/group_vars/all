@@ -6,3 +6,5 @@ mgmt_users:
   - username: cluster
     password: clusterpass
     realm:    ManagementRealm
+
+jboss_mgmt_ip: "{{ ansible_eth1.ipv4.address }}"
