@@ -35,7 +35,7 @@
       c: "{{ jboss_clins }}"
     xpath: /c:jboss-cli/c:default-controller
     set_children:
-      - host: "{{ ansible_default_ipv4.address }}"
+      - host: "{{ jboss_mgmt_ip }}"
 
 - name: populate mgmt-users.properties
   template:
