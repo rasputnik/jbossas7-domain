@@ -1,13 +1,16 @@
 ---
 
 - name: download JBoss AS tar for {{ jboss_version }}
-  get_url: url={{ jboss_tar_url }}
-           dest={{ jboss_tar_cache }}
+  get_url:
+    url: "{{ jboss_tar_url }}"
+    dest: "{{ jboss_tar_cache }}"
 
 - name: extract jboss tar
-  unarchive: src={{ jboss_tar_cache }} dest={{ jboss_home_parent }}
-             creates={{ jboss_home }}/jboss-modules.jar
-             copy=no 
+  unarchive:
+    src: "{{ jboss_tar_cache }}"
+    dest: "{{ jboss_home_parent }}"
+    creates: "{{ jboss_home }}/jboss-modules.jar"
+    copy: no 
   notify: bounce jboss
 
 - name: chown jboss_home on first extract
@@ -17,20 +20,31 @@
     warn: no
 
 - name: create /etc/jboss-as
-  file: name=/etc/jboss-as state=directory
-        mode=0555 owner=root group=root
+  file:
+    name: /etc/jboss-as
+    state: directory
+    mode: 0555
+    owner: root
+    group: root
 
 - name: various folders owned by {{ jboss_user }}
-  file: name={{ item }} state=directory
-        mode=0777 owner={{ jboss_user }} group={{ jboss_user }}
+  file:
+    name: "{{ item }}"
+    state: directory
+    mode: 0777
+    owner: "{{ jboss_user }}"
+    group: "{{ jboss_user }}"
   with_items:
     - "{{ jboss_pid_dir }}"
     - "{{ jboss_log_dir }}"
 
 - name: initscript, JBOSS_HOME env, /etc/jboss-as/jboss-as.conf
-  template: src=.{{ item }}.j2
-            dest={{ item }}
-            mode=0555 owner=root group=root
+  template:
+    src: ".{{ item }}.j2"
+    dest: "{{ item }}"
+    mode: 0555
+    owner: root
+    group: root
   with_items:
     - /etc/profile.d/jboss_home.sh
     - /etc/jboss-as/jboss-as.conf

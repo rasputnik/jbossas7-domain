@@ -1,16 +1,25 @@
 ---
 
 - name: install {{ openjdk7_rpm }}
-  yum: name={{ openjdk7_rpm }} state=present
+  yum:
+    name: "{{ openjdk7_rpm }}"
+    state: present
 
 - name: create /etc/java
-  file: name=/etc/java state=directory
-        owner=root group=root mode=0555
+  file:
+    name: /etc/java
+    state: directory
+    owner: root
+    group: root
+    mode: 0555
 
 - name: create /etc/java/java.conf and /etc/profile.d/java_home.sh
-  template: src=.{{ item }}.j2
-            dest={{ item }}
-            owner=root group=root mode=0444
+  template:
+    src: ".{{ item }}.j2"
+    dest: "{{ item }}"
+    owner: root
+    group: root
+    mode: 0444
   with_items:
     - /etc/java/java.conf
     - /etc/profile.d/java_home.sh
