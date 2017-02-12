@@ -9,3 +9,11 @@
     - jboss_install
     - xmlsetup
     - dc
+
+- hosts: nodes
+  become: yes
+  become_user: root
+  roles:
+    - openjdk7
+    - jboss_install
+    - hc
