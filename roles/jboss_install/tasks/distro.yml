@@ -1,11 +1,11 @@
 ---
 
-- name: download JBoss AS tar for {{ jboss_version }}
+- name: download {{ jboss_version }} tarball
   get_url:
     url: "{{ jboss_tar_url }}"
     dest: "{{ jboss_tar_cache }}"
 
-- name: extract jboss tar
+- name: extract jboss tarball
   unarchive:
     src: "{{ jboss_tar_cache }}"
     dest: "{{ jboss_home_parent }}"
