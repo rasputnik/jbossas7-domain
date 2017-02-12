@@ -5,6 +5,7 @@ as7dc jboss_nodegroup=nodes
 
 # 'jboss_secret' here is used by
 # DC(s) and HCs
+# 'dc' is just the inventory name of their DC
 [nodes]
-as7node1 jboss_secret="node1sekrit"
-as7node2 jboss_secret="node2sekrit"
+as7node1 jboss_secret="node1sekrit" dc=as7dc
+as7node2 jboss_secret="node2sekrit" dc=as7dc
