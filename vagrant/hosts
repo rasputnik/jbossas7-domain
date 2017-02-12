@@ -1,6 +1,10 @@
+# jboss_nodegroup tells the DC(s)
+# which group holds its nodes
 [dcs]
-as7dc
+as7dc jboss_nodegroup=nodes
 
+# 'jboss_secret' here is used by
+# DC(s) and HCs
 [nodes]
-as7node1
-as7node2
+as7node1 jboss_secret="node1sekrit"
+as7node2 jboss_secret="node2sekrit"

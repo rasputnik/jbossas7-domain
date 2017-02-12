@@ -5,6 +5,9 @@ jboss_clins: "urn:jboss:cli:1.0"
 
 jboss_mgmt_ip: "{{ ansible_default_ipv4.address }}"
 
+# no sane default so emit warning message
+jboss_hostgroup: "set-this-to-the-group-holding-your-hcs"
+
 # NB: you need this to be the same across nodes,
 # so set it in $inventory/group_vars/all
 # 
