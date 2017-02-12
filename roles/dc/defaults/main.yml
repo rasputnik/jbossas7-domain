@@ -7,6 +7,8 @@ jboss_mgmt_ip: "{{ ansible_default_ipv4.address }}"
 
 # NB: you need this to be the same across nodes,
 # so set it in $inventory/group_vars/all
+# 
+# each dict maps to a line in mgmt-users.properties on the DC
 # mgmt_users:
 #   - username: clusteruser
 #     password: clusterpass

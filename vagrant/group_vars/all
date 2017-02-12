@@ -2,8 +2,6 @@ ansible_ssh_user: vagrant
 ansible_ssh_private_key_file: ~/.vagrant.d/insecure_private_key
 
 # domain level vars live here
-# mgmt_users sets accounts in mgmt-users.properties
-# list of dicts. each dict 
 mgmt_users:
   - username: cluster
     password: clusterpass
