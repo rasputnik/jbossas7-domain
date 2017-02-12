@@ -28,3 +28,8 @@
 {% set plaintext =  [a.username, a.realm, a.password]|join(':') %}
 {{ a.username }}={{ plaintext|hash('md5') }}
 {% endfor %}
+{% for n in groups[jboss_nodegroup] %}
+{% set node_secret = hostvars[n].jboss_secret %}
+{% set plaintext =  [n, "ManagementRealm", node_secret]|join(':') %}
+{{ n }}={{ plaintext|hash('md5') }}
+{% endfor %}

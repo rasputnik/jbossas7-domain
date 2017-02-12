@@ -1,12 +1,15 @@
 ---
 
 - name: stop DC to work on host.xml
-  service: name=jboss-as-domain state=stopped
+  service:
+    name: jboss-as-domain
+    state: stopped
 
 - name: reset host.xml from host-master.xml
-  copy: src={{ jboss_config_dir }}/host-master.xml
-        dest={{ jboss_hostxml }}
-        remote_src=yes
+  copy:
+    src: "{{ jboss_config_dir }}/host-master.xml"
+    dest: "{{ jboss_hostxml }}"
+    remote_src: yes
   become: yes
   become_user: "{{ jboss_user }}"
 
@@ -46,4 +49,6 @@
     mode: 0600
 
 - name: start DC again
-  service: name=jboss-as-domain state=started
+  service:
+    name: jboss-as-domain
+    state: started
