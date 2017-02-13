@@ -42,7 +42,7 @@ And you should be able to login to the DC http UI at
 
     http://as7dc:9990/ 
 
-using creds in mgmt_users in vagrant/group_vars/all.
+using creds in mgmt_users in roles/dc/defaults/main.yml.
 
 If you add/destroy vagrant VMs, the 'vagrant up' should
 auto-manage your local /etc/hosts along with existing VMs. If you
