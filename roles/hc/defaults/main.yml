@@ -1,4 +1,9 @@
 jboss_hostxml: "{{ jboss_config_dir }}/host.xml"
 jboss_hostxmlns: "urn:jboss:domain:1.2"
 
+# set this per node
+jboss_secret: kittens123
+jboss_dc: "set-this-to-the-host-running-domain-controller"
+
 jboss_mgmt_ip: "{{ ansible_default_ipv4.address }}"
+jboss_public_ip: "{{ ansible_default_ipv4.address }}"

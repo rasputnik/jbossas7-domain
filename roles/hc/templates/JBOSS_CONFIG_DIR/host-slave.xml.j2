@@ -28,7 +28,7 @@
     </management>
 
     <domain-controller>
-       <remote host="{{ dc }}" port="${jboss.domain.master.port:9999}" security-realm="ManagementRealm"/>
+       <remote host="{{ jboss_dc }}" port="${jboss.domain.master.port:9999}" security-realm="ManagementRealm"/>
     </domain-controller>
 
     <interfaces>
@@ -36,7 +36,7 @@
             <inet-address value="{{ jboss_mgmt_ip }}"/>
         </interface>
         <interface name="public">
-           <inet-address value="${jboss.bind.address:127.0.0.1}"/>
+           <inet-address value="{{ jboss_public_ip }}"/>
         </interface>
         <interface name="unsecure">
             <!-- Used for IIOP sockets in the standard configuration.
