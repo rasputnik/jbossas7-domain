@@ -8,11 +8,8 @@ jboss_mgmt_ip: "{{ ansible_default_ipv4.address }}"
 # no sane default so emit warning message
 jboss_hostgroup: "set-this-to-the-group-holding-your-hcs"
 
-# NB: you need this to be the same across nodes,
-# so set it in $inventory/group_vars/all
-# 
 # each dict maps to a line in mgmt-users.properties on the DC
-# mgmt_users:
-#   - username: clusteruser
-#     password: clusterpass
-#     realm:    ManagementRealm
+mgmt_users:
+  - username: clusteruser
+    password: clusterpass
+    realm:    ManagementRealm

@@ -1,10 +1,5 @@
 ansible_ssh_user: vagrant
 ansible_ssh_private_key_file: ~/.vagrant.d/insecure_private_key
 
-# domain level vars live here
-mgmt_users:
-  - username: cluster
-    password: clusterpass
-    realm:    ManagementRealm
-
+# work around vagrants wonky networking
 jboss_mgmt_ip: "{{ ansible_eth1.ipv4.address }}"
